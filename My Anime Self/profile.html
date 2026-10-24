@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#12121c">
+    <meta name="description" content="Your personal anime collection: track watched anime and manage your wishlist.">
+    <meta name="robots" content="noindex, nofollow">
+    <title>My Profile | My Anime Shelf</title>
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✨</text></svg>">
+
+    <!-- Speeds up cover images from AniList -->
+    <link rel="preconnect" href="https://s4.anilist.co" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <a class="skip-link" href="#profileMain">Skip to main content</a>
+
+    <header>
+        <nav class="navbar" aria-label="Main navigation">
+            <div class="nav-left">
+                <a href="index.html" class="back-home" aria-label="Back to home page">← Home</a>
+                <a href="index.html" class="logo">My Anime Shelf ✨</a>
+            </div>
+
+            <div class="nav-links">
+                <button id="signInButton" class="nav-auth-button" type="button">Log In</button>
+                <button id="signOutButton" class="nav-auth-button" type="button" hidden>Sign Out</button>
+            </div>
+        </nav>
+    </header>
+
+    <main id="profileMain" class="profile-page" tabindex="-1">
+        <noscript>
+            <p class="empty-message">Please enable JavaScript to view your profile.</p>
+        </noscript>
+
+        <section class="content-section" aria-labelledby="profileHeading">
+            <div class="section-heading">
+                <h1 id="profileHeading">👤 My Profile</h1>
+                <p>Your personal anime collection</p>
+            </div>
+
+            <div class="profile-panel">
+                <div class="profile-avatar" aria-hidden="true">👤</div>
+                <div class="profile-details">
+                    <h2 id="profileName">Welcome, Anime Fan!</h2>
+                    <p id="profileEmail">Please log in to view your collection.</p>
+                    <p id="profileStatus" role="status" aria-live="polite">Checking your account...</p>
+                </div>
+            </div>
+
+            <div class="profile-stats">
+                <div class="stat-card">
+                    <span aria-hidden="true">✅</span>
+                    <p>Watched Anime</p>
+                    <strong id="watchedCount" aria-live="polite">0</strong>
+                </div>
+
+                <div class="stat-card">
+                    <span aria-hidden="true">❤️</span>
+                    <p>Wishlist Anime</p>
+                    <strong id="wishlistCount" aria-live="polite">0</strong>
+                </div>
+            </div>
+        </section>
+
+        <section id="watched" class="content-section" aria-labelledby="watchedHeading">
+            <div class="section-heading">
+                <h2 id="watchedHeading">✅ My Watched Anime</h2>
+                <p>Track the episodes you've watched</p>
+            </div>
+            <div id="watchedList" class="anime-grid" aria-busy="true">
+                <p class="empty-message" role="status">Loading your watched anime...</p>
+            </div>
+        </section>
+
+        <section id="wishlist" class="content-section" aria-labelledby="wishlistHeading">
+            <div class="section-heading">
+                <h2 id="wishlistHeading">❤️ My Anime Wishlist</h2>
+                <p>Anime you want to watch next</p>
+            </div>
+            <div id="wishlistList" class="anime-grid" aria-busy="true">
+                <p class="empty-message" role="status">Loading your wishlist...</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Made with ❤️ by an anime fan.</p>
+        <p>Anime information and ratings provided by <a href="https://anilist.co" target="_blank" rel="noopener noreferrer">AniList</a>.</p>
+    </footer>
+
+    <script type="module" src="profile.js"></script>
+</body>
+</html>
