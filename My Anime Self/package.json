@@ -1,0 +1,24 @@
+{
+  "name": "my-anime-shelf",
+  "version": "1.0.0",
+  "description": "Your personal anime universe: discover trending anime, manage your wishlist, and track watched episodes with AniList and Firebase.",
+  "type": "module",
+  "scripts": {
+    "start": "serve -l 5500",
+    "dev": "serve -l 5500"
+  },
+  "keywords": [
+    "anime",
+    "anilist",
+    "anilist-api",
+    "firebase",
+    "anime-tracker",
+    "watchlist",
+    "vanilla-js"
+  ],
+  "author": "SadhaSri697 <jnanasadhasri.s@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.2.4"
+  }
+}
