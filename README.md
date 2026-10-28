@@ -79,7 +79,8 @@ Click below to open and view the website live in your browser:
 ## 📂 Project Structure
 
 ```text
-My Anime Self/
+My-Anime-Self/
+├── .nojekyll         # Disables Jekyll processing for GitHub Pages
 ├── index.html        # Main landing page (Discovery, Search, Stats, Charts)
 ├── profile.html      # User profile page (Watched list, Wishlist, Episode tracking)
 ├── style.css         # Unified responsive stylesheet and design token system
@@ -90,6 +91,18 @@ My Anime Self/
 ├── LICENSE           # Open-source MIT License
 └── README.md         # Documentation
 ```
+
+---
+
+## 🌐 Live Deployment (GitHub Pages)
+
+The project is pre-configured for instant hosting via **GitHub Pages**:
+
+1. Go to your repository **Settings** → **Pages** (direct link: [Repository Pages Settings](https://github.com/SadhaSri697/My-Anime-Self/settings/pages)).
+2. Under **Build and deployment** > **Source**, choose **Deploy from a branch**.
+3. Select branch **main** and folder **/(root)**, then click **Save**.
+4. Your website is immediately available at:  
+   👉 **[https://sadhasri697.github.io/My-Anime-Self/](https://sadhasri697.github.io/My-Anime-Self/)**
 
 ---
 
