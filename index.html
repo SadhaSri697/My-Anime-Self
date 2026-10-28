@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#12121c">
+    <meta name="description" content="Discover trending, popular and top-rated anime, search the AniList catalogue, and build your own anime collection.">
+    <title>My Anime Shelf ✨</title>
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✨</text></svg>">
+
+    <!-- Speeds up the first AniList requests -->
+    <link rel="preconnect" href="https://graphql.anilist.co" crossorigin>
+    <link rel="preconnect" href="https://s4.anilist.co" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <a class="skip-link" href="#home">Skip to main content</a>
+
+    <header>
+        <nav class="navbar" aria-label="Main navigation">
+            <div class="nav-left">
+                <button
+                    id="menuButton"
+                    class="menu-button"
+                    type="button"
+                    aria-label="Open menu"
+                    aria-expanded="false"
+                    aria-controls="sidebar"
+                >☰</button>
+                <a href="#home" class="logo">My Anime Shelf ✨</a>
+            </div>
+
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <button id="signInButton" class="nav-auth-button" type="button">Log In</button>
+                <button id="signOutButton" class="nav-auth-button" type="button" hidden>Sign Out</button>
+            </div>
+        </nav>
+    </header>
+
+    <div id="sidebarOverlay" class="sidebar-overlay" aria-hidden="true"></div>
+
+    <aside id="sidebar" class="sidebar" aria-label="Explore menu">
+        <div class="sidebar-heading">
+            <h2>Explore</h2>
+            <button id="closeMenuButton" class="close-menu-button" type="button" aria-label="Close menu">×</button>
+        </div>
+
+        <nav aria-label="Sidebar navigation">
+            <a href="#home" class="sidebar-link">🏠 Home</a>
+            <a href="#trending" class="sidebar-link">🔥 Trending Anime</a>
+            <a href="#popular" class="sidebar-link">⭐ Most Popular</a>
+            <a href="#topRated" class="sidebar-link">🏆 Top Rated</a>
+            <a href="#statistics" class="sidebar-link">📊 Anime Statistics</a>
+            <a href="profile.html" class="sidebar-link">👤 Your Profile</a>
+            <a href="profile.html#watched" class="sidebar-link">✅ Watched Anime</a>
+            <a href="profile.html#wishlist" class="sidebar-link">❤️ Wishlist</a>
+        </nav>
+    </aside>
+
+    <main id="home" tabindex="-1">
+        <noscript>
+            <p class="loading-message">Please enable JavaScript to browse anime.</p>
+        </noscript>
+
+        <section class="hero">
+            <span class="hero-label">YOUR PERSONAL ANIME UNIVERSE</span>
+            <h1>Discover Your Next Favorite Anime</h1>
+            <p>Explore trending anime, discover new stories, and build your own collection.</p>
+
+            <div class="search-wrapper">
+                <form id="searchForm" class="search-box" role="search">
+                    <input
+                        type="search"
+                        id="animeSearch"
+                        placeholder="Search anime... "
+                        autocomplete="off"
+                        aria-label="Search anime"
+                        role="combobox"
+                        aria-autocomplete="list"
+                        aria-expanded="false"
+                        aria-controls="searchSuggestions"
+                    >
+                    <button id="searchButton" type="submit">Search</button>
+                </form>
+
+                <div id="searchSuggestions" class="search-suggestions" role="listbox" aria-label="Search suggestions" hidden></div>
+            </div>
+
+            <p id="searchStatus" class="search-status" role="status" aria-live="polite"></p>
+        </section>
+
+        <section id="searchSection" class="content-section" aria-labelledby="searchHeading" hidden>
+            <div class="section-heading">
+                <h2 id="searchHeading">🔎 Search Results</h2>
+                <p>Anime matching your search</p>
+            </div>
+            <div id="searchResults" class="anime-grid" aria-live="polite"></div>
+        </section>
+
+        <section id="trending" class="content-section" aria-labelledby="trendingHeading">
+            <div class="section-heading">
+                <h2 id="trendingHeading">🔥 Trending This Week</h2>
+                <p>Anime attracting attention right now</p>
+            </div>
+            <div id="trendingAnime" class="anime-grid" aria-busy="true">
+                <p class="loading-message" role="status">Loading trending anime...</p>
+            </div>
+        </section>
+
+        <section id="popular" class="content-section" aria-labelledby="popularHeading">
+            <div class="section-heading">
+                <h2 id="popularHeading">⭐ Most Popular Anime</h2>
+                <p>Popular anime loved by fans</p>
+            </div>
+            <div id="popularAnime" class="anime-grid" aria-busy="true">
+                <p class="loading-message" role="status">Loading popular anime...</p>
+            </div>
+        </section>
+
+        <section id="topRated" class="content-section" aria-labelledby="topRatedHeading">
+            <div class="section-heading">
+                <h2 id="topRatedHeading">🏆 Top-Rated Anime</h2>
+                <p>Highly rated anime from the AniList catalogue</p>
+            </div>
+            <div id="topRatedAnime" class="anime-grid" aria-busy="true">
+                <p class="loading-message" role="status">Loading top-rated anime...</p>
+            </div>
+        </section>
+
+        <section id="statistics" class="content-section" aria-labelledby="statisticsHeading">
+            <div class="section-heading">
+                <h2 id="statisticsHeading">📊 Anime Statistics</h2>
+                <p>Compare popularity and average user ratings</p>
+            </div>
+
+            <div class="chart-panel">
+                <h3>Popularity Comparison</h3>
+                <p class="chart-description" id="popularityDescription">Higher bars indicate greater catalogue popularity.</p>
+                <div id="popularityChart" class="bar-chart" role="img" aria-describedby="popularityDescription" aria-label="Bar chart comparing anime popularity">
+                    <p class="loading-message">Preparing popularity chart...</p>
+                </div>
+            </div>
+
+            <div class="chart-panel">
+                <h3>Average Ratings</h3>
+                <p class="chart-description" id="ratingDescription">Ratings are shown out of 100.</p>
+                <div id="ratingChart" class="bar-chart" role="img" aria-describedby="ratingDescription" aria-label="Bar chart comparing average anime ratings">
+                    <p class="loading-message">Preparing rating chart...</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Made with ❤️ by an anime fan.</p>
+        <p>Anime information and ratings provided by <a href="https://anilist.co" target="_blank" rel="noopener noreferrer">AniList</a>.</p>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>

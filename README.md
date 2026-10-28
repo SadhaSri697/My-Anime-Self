@@ -1,5 +1,7 @@
 # My Anime Shelf ✨
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-sadhasri697.github.io%2FMy--Anime--Self-2ea44f?style=for-the-badge&logo=githubpages&logoColor=white)](https://sadhasri697.github.io/My-Anime-Self/)
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-purple.svg)](LICENSE)
 [![Vanilla JS](https://img.shields.io/badge/Vanilla-JavaScript%20ES6+-F7DF1E?logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 [![HTML5](https://img.shields.io/badge/HTML5-Semantic-E34F26?logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Glossary/HTML5)
@@ -8,6 +10,14 @@
 [![Firebase](https://img.shields.io/badge/Database-Firebase%20v11-FFCA28?logo=firebase&logoColor=black)](https://firebase.google.com/)
 
 > **Your personal anime universe.** Discover trending and popular anime, search the comprehensive AniList catalogue, compare show statistics, and manage your personal watched list and wishlist in the cloud.
+
+---
+
+## 🌐 Live Website
+
+Click below to open and view the website live in your browser:
+
+👉 **[https://sadhasri697.github.io/My-Anime-Self/](https://sadhasri697.github.io/My-Anime-Self/)**
 
 ---
 
